@@ -17,12 +17,12 @@ use 5.010;
 sub traverse_clean {
   my $full_path = $_[0];
   my $file = $_[1];
-   
+  print "$full_path\n"; 
   if ( $file =~ /.*\.v/) {
     clean_verilog($full_path);
   }
-  return if not -d $file;
-  opendir my $dh, $file or die;
+  return if not -d $full_path;
+  opendir my $dh, $full_path or die;
   while (my $sub = readdir $dh) {
     next if $sub eq '.' or $sub eq '..';
     traverse_clean("$full_path/$sub","$sub");
