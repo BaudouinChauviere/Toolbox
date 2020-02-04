@@ -1,0 +1,3 @@
+Super clever:
+
+find ../.. -name rm_setup -exec cp rm_setup/write_gds.tcl {} \;
