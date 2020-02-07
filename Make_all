@@ -1,0 +1,10 @@
+# Execute all the Makefiles in parallel:
+
+for D in `ls`
+do
+	if [ -d "${D}" ]; then
+    	cd $D
+		bash -c 'terminator -x make all -B &'
+		cd ..
+	fi
+done
